@@ -104,6 +104,24 @@ pairs(scatter_plot)
 ```
 
 KOMMENTAR: Veldig vanskelig å se hvordan color, clarity og cut påvirker, mulig å lage enkelte scatterplots for hver variabel? Får ikke til med "plot(x,y)" funksjonen ..
+
+SVAR: Her er scatterplots. Gjort på en litt tungvint måte, men det funker i hvert fall. 
+```{r,eval=TRUE}
+price=unlist(dtrain[,1])
+logprice=unlist(dtrain[,2])
+carat = unlist(dtrain[,3])
+logcarat = unlist(dtrain[,4])
+color = unlist(dtrain[,6])
+clarity = unlist(dtrain[,6])
+cut = unlist(dtrain[,5])
+
+plot(logprice, carat, type = "p") 
+plot(logprice, logcarat, type = "p") 
+plot(logprice, cut, type = "p")
+plot(logprice, color, type = "p")
+plot(logprice, clarity, type = "p")
+plot(logprice, cut, type = "p")
+```
 ***
 Use the local regression model $\texttt{logprice} = \beta_0 + \beta_1 \texttt{carat}+ \beta_2 \texttt{carat}^2$ weighted by the tricube kernel $K_{i0}$.
 
